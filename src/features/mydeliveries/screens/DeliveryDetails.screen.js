@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export const DeliveryDetailsScreen = () => {
+export const DeliveryDetailsScreen = ({ route }) => {
+  const { delivery } = route.params;
   return (
     <View style={styles.screen}>
-      <Text>Details screen</Text>
+      <Text>{delivery.site}</Text>
     </View>
   );
 };

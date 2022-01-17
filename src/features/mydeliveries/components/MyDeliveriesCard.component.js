@@ -6,7 +6,9 @@ import styled from "styled-components/native";
 import { Text } from "../../../components/typography/Text.component";
 import { View } from "react-native";
 
-const Feature1Card = styled(Card)``;
+const Feature1Card = styled(Card)`
+  padding: 0px 5px 0px 5px;
+`;
 
 const Feature1CardTitle = styled.View`
   padding: 10px;
@@ -17,18 +19,15 @@ const Map = styled(MapView)`
   width: 100%;
 `;
 
-export const MyDeliveriesCard = ({ mydelivery = {} }) => {
+export const MyDeliveriesCard = ({ delivery }) => {
   const {
     site = "Caltex Duncan Village",
-    accNumber = 22000,
     OrderNo = 22000,
     lat = -33.9793,
     long = 25.5534,
-    deliveryDate = "12/11/2021 5:40 PM",
-    status = "Pending",
     totalD50 = 5000,
     totalULP = 15200,
-  } = mydelivery;
+  } = delivery;
 
   return (
     <Feature1Card>
