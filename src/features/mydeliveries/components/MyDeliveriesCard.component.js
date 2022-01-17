@@ -4,8 +4,13 @@ import { Card, Paragraph } from "react-native-paper";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
 import { Text } from "../../../components/typography/Text.component";
+import { View } from "react-native";
 
 const Feature1Card = styled(Card)``;
+
+const Feature1CardTitle = styled.View`
+  padding: 10px;
+`;
 
 const Map = styled(MapView)`
   height: 140px;
@@ -16,6 +21,7 @@ export const MyDeliveriesCard = ({ mydelivery = {} }) => {
   const {
     site = "Caltex Duncan Village",
     accNumber = 22000,
+    OrderNo = 22000,
     lat = -33.9793,
     long = 25.5534,
     deliveryDate = "12/11/2021 5:40 PM",
@@ -26,7 +32,10 @@ export const MyDeliveriesCard = ({ mydelivery = {} }) => {
 
   return (
     <Feature1Card>
-      <Card.Title title="Screen 1" />
+      <Feature1CardTitle>
+        <Text variant="heading">{site}</Text>
+      </Feature1CardTitle>
+
       <Map
         region={{
           latitude: lat,
@@ -34,6 +43,10 @@ export const MyDeliveriesCard = ({ mydelivery = {} }) => {
           latitudeDelta: 0.009,
           longitudeDelta: 0.009,
         }}
+        pitchEnabled={false}
+        rotateEnabled={false}
+        scrollEnabled={false}
+        zoomEnabled={false}
       >
         <MapView.Marker
           title="The title here"
@@ -41,6 +54,7 @@ export const MyDeliveriesCard = ({ mydelivery = {} }) => {
             latitude: lat,
             longitude: long,
           }}
+          /*     image={{ uri: "../../../../assets/gas_station.png" }} */
         >
           <MapView.Callout
             onPress={() => {
@@ -67,11 +81,32 @@ export const MyDeliveriesCard = ({ mydelivery = {} }) => {
         </MapView.Marker>
       </Map>
 
-      <Card.Content>
-        <Text>Card title</Text>
-        <Paragraph>
-          <Text variant="body"></Text>
-        </Paragraph>
+      <Card.Content style={{ paddingTop: 15 }}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View>
+            <Text variant="caption">OrderNo</Text>
+            <Text>{OrderNo}</Text>
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <View style={{ marginHorizontal: 5 }}>
+              <Text variant="caption">Total D50</Text>
+              <Text>{totalD50}</Text>
+            </View>
+            <View
+              style={{
+                height: "80%",
+                width: 1,
+                alignSelf: "center",
+                marginHorizontal: 5,
+                backgroundColor: "#f5f5f5",
+              }}
+            ></View>
+            <View style={{ marginHorizontal: 5 }}>
+              <Text variant="caption">Total ULP</Text>
+              <Text>{totalULP}</Text>
+            </View>
+          </View>
+        </View>
       </Card.Content>
     </Feature1Card>
   );

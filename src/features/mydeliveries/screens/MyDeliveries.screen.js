@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Paragraph, Searchbar } from "react-native-paper";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 
 import { Text } from "../../../components/typography/Text.component";
 import { Spacer } from "../../../components/spacer/Spacer.component";
@@ -10,12 +10,11 @@ import { MyDeliveriesCard } from "../components/MyDeliveriesCard.component";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  background-color: white;
 `;
 
 const ScrollViewMargin = styled(ScrollView)`
-  margin-left: 10px;
-  margin-right: 10px;
+  /*   margin-left: 10px;
+  margin-right: 10px; */
 `;
 
 const CardContainer = styled.View`
@@ -23,10 +22,11 @@ const CardContainer = styled.View`
 `;
 
 const SearchBarContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[3]} ${(props) => props.theme.space[1]}
+    ${(props) => props.theme.space[2]} ${(props) => props.theme.space[1]};
 `;
 
-export const Feature1Screen = () => {
+export const MyDeliveriesScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <SearchBarContainer>
@@ -35,7 +35,11 @@ export const Feature1Screen = () => {
       <ScrollViewMargin>
         <CardContainer>
           <Spacer position="top" size="large">
-            <MyDeliveriesCard />
+            <TouchableOpacity
+              onPress={() => navigation.navigate("DeliveryDetail")}
+            >
+              <MyDeliveriesCard />
+            </TouchableOpacity>
           </Spacer>
         </CardContainer>
       </ScrollViewMargin>

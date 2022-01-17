@@ -9,6 +9,10 @@ const defaultTextStyles = (theme) => `
   margin-bottom: 0px;
 `;
 
+const title = (theme) => `
+    font-size: ${theme.fontSizes.title};
+`;
+
 const body = (theme) => `
     font-size: ${theme.fontSizes.body};
 `;
@@ -23,7 +27,7 @@ const error = (theme) => `
 
 const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
-    font-weight: ${theme.fontWeights.bold};
+    font-weight: ${theme.fontWeights.regular};
 `;
 
 const label = (theme) => `
@@ -32,7 +36,15 @@ const label = (theme) => `
     font-weight: ${theme.fontWeights.medium};
 `;
 
+const heading = (theme) => `
+    font-family: ${theme.fonts.body};
+    font-size: ${theme.fontSizes.h5};
+    font-weight: ${theme.fontWeights.regular};
+`;
+
 const variants = {
+  heading,
+  title,
   body,
   label,
   caption,

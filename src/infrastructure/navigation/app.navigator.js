@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Feature1Screen } from "../../features/feature1/screens/Feature1.screen";
+import { DeliveriesNavigator } from "./deliveries.navigator";
 import { Feature2Screen } from "../../features/feature2/screens/Feature2.screen";
 import { Feature3Screen } from "../../features/feature3/screens/Feature3.screen";
 
@@ -36,7 +36,7 @@ export const AppNavigator = () => (
   <Tab.Navigator screenOptions={ScreenOptions}>
     <Tab.Screen
       name="MyDeliveries"
-      component={Feature1Screen}
+      component={DeliveriesNavigator}
       options={{ title: "My Deliveries" }}
     />
     <Tab.Screen
