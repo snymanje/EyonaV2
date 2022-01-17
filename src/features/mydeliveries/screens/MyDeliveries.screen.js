@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Paragraph, Searchbar } from "react-native-paper";
-import MapView from "react-native-maps";
+import { FadeInView } from "../../../components/animation/fade.animation";
 import styled from "styled-components/native";
 import { SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 
@@ -10,11 +10,6 @@ import { MyDeliveriesCard } from "../components/MyDeliveriesCard.component";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-`;
-
-const ScrollViewMargin = styled(ScrollView)`
-  /*   margin-left: 10px;
-  margin-right: 10px; */
 `;
 
 const CardContainer = styled.View`
@@ -32,17 +27,19 @@ export const MyDeliveriesScreen = ({ navigation }) => {
       <SearchBarContainer>
         <Searchbar placeholder="Search" />
       </SearchBarContainer>
-      <ScrollViewMargin>
+      <ScrollView>
         <CardContainer>
           <Spacer position="top" size="large">
             <TouchableOpacity
               onPress={() => navigation.navigate("DeliveryDetail")}
             >
-              <MyDeliveriesCard />
+              <FadeInView>
+                <MyDeliveriesCard />
+              </FadeInView>
             </TouchableOpacity>
           </Spacer>
         </CardContainer>
-      </ScrollViewMargin>
+      </ScrollView>
     </SafeArea>
   );
 };
