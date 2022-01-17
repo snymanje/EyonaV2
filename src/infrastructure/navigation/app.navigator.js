@@ -9,9 +9,9 @@ import { Feature3Screen } from "../../features/feature3/screens/Feature3.screen"
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
-  Tab1: "md-home",
-  Tab2: "md-map",
-  Tab3: "md-settings",
+  MyDeliveries: "md-list",
+  NewDelivery: "md-add",
+  Settings: "md-settings",
 };
 
 const ScreenOptions = ({ route }) => {
@@ -34,8 +34,20 @@ const ScreenOptions = ({ route }) => {
 
 export const AppNavigator = () => (
   <Tab.Navigator screenOptions={ScreenOptions}>
-    <Tab.Screen name="Tab1" component={Feature1Screen} />
-    <Tab.Screen name="Tab2" component={Feature2Screen} />
-    <Tab.Screen name="Tab3" component={Feature3Screen} />
+    <Tab.Screen
+      name="MyDeliveries"
+      component={Feature1Screen}
+      options={{ title: "My Deliveries" }}
+    />
+    <Tab.Screen
+      name="NewDelivery"
+      component={Feature2Screen}
+      options={{ title: "New Delivery" }}
+    />
+    <Tab.Screen
+      name="Settings"
+      component={Feature3Screen}
+      options={{ title: "Settings" }}
+    />
   </Tab.Navigator>
 );

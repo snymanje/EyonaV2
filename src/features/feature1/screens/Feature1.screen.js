@@ -1,40 +1,44 @@
 import React from "react";
-import { Card, Paragraph } from "react-native-paper";
-
+import { Card, Paragraph, Searchbar } from "react-native-paper";
+import MapView from "react-native-maps";
 import styled from "styled-components/native";
+import { SafeAreaView, ScrollView } from "react-native";
 
-import { Text } from "../../../components/typography/text.component";
+import { Text } from "../../../components/typography/Text.component";
+import { Spacer } from "../../../components/spacer/Spacer.component";
+import { MyDeliveriesCard } from "../components/MyDeliveriesCard.component";
 
-const Screen = styled.View`
+const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  justify-content: center;
-  align-items: center;
   background-color: white;
+`;
+
+const ScrollViewMargin = styled(ScrollView)`
+  margin-left: 10px;
+  margin-right: 10px;
 `;
 
 const CardContainer = styled.View`
   width: 100%;
 `;
 
-const Feature1Card = styled(Card)`
-  margin-left: 10px;
-  margin-right: 10px;
+const SearchBarContainer = styled.View`
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const Feature1Screen = () => {
   return (
-    <Screen>
-      <CardContainer>
-        <Feature1Card>
-          <Card.Title title="Screen 1" subtitle="Feature 1" />
-          <Card.Content>
-            <Text>Card title</Text>
-            <Paragraph>
-              <Text variant="body"></Text>
-            </Paragraph>
-          </Card.Content>
-        </Feature1Card>
-      </CardContainer>
-    </Screen>
+    <SafeArea>
+      <SearchBarContainer>
+        <Searchbar placeholder="Search" />
+      </SearchBarContainer>
+      <ScrollViewMargin>
+        <CardContainer>
+          <Spacer position="top" size="large">
+            <MyDeliveriesCard />
+          </Spacer>
+        </CardContainer>
+      </ScrollViewMargin>
+    </SafeArea>
   );
 };

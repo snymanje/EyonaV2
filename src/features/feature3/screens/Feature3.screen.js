@@ -1,6 +1,7 @@
 import React from "react";
 
 import styled from "styled-components/native";
+import { Text } from "react-native";
 
 const Screen = styled.View`
   flex: 1;
@@ -8,7 +9,7 @@ const Screen = styled.View`
   align-items: center;
 `;
 
-import { Text } from "../../../components/typography/text.component";
+// import { Text } from "../../../components/typography/text.component";
 
 export const Feature3Screen = () => {
   return (
