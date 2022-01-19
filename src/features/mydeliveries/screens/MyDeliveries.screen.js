@@ -1,15 +1,9 @@
 import React from "react";
-import { Card, Paragraph, Searchbar } from "react-native-paper";
+import { Searchbar } from "react-native-paper";
 import { FadeInView } from "../../../components/animation/fade.animation";
 import styled from "styled-components/native";
-import {
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { SafeAreaView, TouchableOpacity, FlatList } from "react-native";
 
-import { Text } from "../../../components/typography/Text.component";
 import { Spacer } from "../../../components/spacer/Spacer.component";
 import { MyDeliveriesCard } from "../components/MyDeliveriesCard.component";
 
@@ -21,11 +15,11 @@ const SafeArea = styled(SafeAreaView)`
 
 const CardContainer = styled.View`
   width: 100%;
+  margin-bottom: 70px;
 `;
 
 const SearchBarContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]} ${(props) => props.theme.space[1]}
-    ${(props) => props.theme.space[2]} ${(props) => props.theme.space[1]};
+  padding: 10px;
 `;
 
 export const MyDeliveriesScreen = ({ navigation }) => {
@@ -48,7 +42,7 @@ export const MyDeliveriesScreen = ({ navigation }) => {
               >
                 <Spacer position="bottom" size="large">
                   <FadeInView>
-                    <MyDeliveriesCard delivery={item} />
+                    <MyDeliveriesCard delivery={item} navigation={navigation} />
                   </FadeInView>
                 </Spacer>
               </TouchableOpacity>

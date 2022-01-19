@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import { DeliveriesNavigator } from "./deliveries.navigator";
-import { Feature2Screen } from "../../features/feature2/screens/Feature2.screen";
+import { NewDeliveriesNavigator } from "./newDelivery.navigator";
 import { Feature3Screen } from "../../features/feature3/screens/Feature3.screen";
 
 const Tab = createBottomTabNavigator();
@@ -41,7 +41,7 @@ export const AppNavigator = () => (
     />
     <Tab.Screen
       name="NewDelivery"
-      component={Feature2Screen}
+      component={NewDeliveriesNavigator}
       options={{ title: "New Delivery" }}
     />
     <Tab.Screen

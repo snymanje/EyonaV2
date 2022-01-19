@@ -1,7 +1,9 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Navigation } from "./src/infrastructure/navigation/index";
 
 import { ThemeProvider } from "styled-components/native";
+//import { Provider as PaperProvider, DefaultTheme } from "react-native-paper";
 
 import {
   useFonts as useOswald,
@@ -23,6 +25,16 @@ export default function App() {
   if (!oswaldLoaded || !latoLoaded) {
     return null;
   }
+
+  /*   const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: "#3498db",
+      accent: "#f1c40f",
+    },
+  }; */
 
   return (
     <>
